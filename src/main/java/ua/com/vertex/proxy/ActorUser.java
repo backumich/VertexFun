@@ -7,18 +7,18 @@ public class ActorUser {
 
     private Actor actor;
 
-    public ActorUser(Actor actor){
+    public ActorUser(Actor actor) {
         this.actor = actor;
-    }
-
-    public void doAct(){
-        actor.doMyBest();
-        actor.actLikeAPro();
     }
 
     public static void main(String[] args) {
         ActorUser actorUser = new ActorUser(new ActorProxy());
 
         actorUser.doAct();
+    }
+
+    public void doAct() {
+        actor.doMyBest();
+        actor.actLikeAPro();
     }
 }

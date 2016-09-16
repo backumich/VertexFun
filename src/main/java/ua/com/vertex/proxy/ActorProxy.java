@@ -7,14 +7,13 @@ public class ActorProxy implements Actor {
 
     private ActorImpl actor;
 
-    public ActorProxy(){
+    public ActorProxy() {
         System.out.println("I'm procrastinating");
     }
 
-    @Override
     public void doMyBest() {
         System.out.println("Starting doMyBest()");
-        if(actor == null){
+        if (actor == null) {
             actor = new ActorImpl();
         }
 
@@ -24,9 +23,8 @@ public class ActorProxy implements Actor {
         System.out.println("doMyBest() is finished");
     }
 
-    @Override
     public void actLikeAPro() {
-        if(actor == null){
+        if (actor == null) {
             actor = new ActorImpl();
         }
         actor.actLikeAPro();

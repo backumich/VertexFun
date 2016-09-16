@@ -12,8 +12,9 @@ public final class Human {
     private String name;
     private int age;
     private List<Human> friends;
-    
-    private Human(){}
+
+    private Human() {
+    }
 
     public Human(String name, int age, List<Human> friends) {
         this.name = name;
@@ -25,6 +26,16 @@ public final class Human {
 //        friends.add(friend);
 //    }
 
+    public static void main(String[] args) {
+        Human friend = new Human("Petia", 19, new ArrayList<Human>());
+
+        Human test = new Human.Builder().setName(getVasiaName()).
+                setAge(19).addFriend(friend).getInstance();
+    }
+
+    private static String getVasiaName() {
+        return "Vasia";
+    }
 
     public String getName() {
         return name;
@@ -37,32 +48,32 @@ public final class Human {
     public List<Human> getFriends() {
         return Collections.unmodifiableList(friends);
     }
-    
-    public static class Builder{
+
+    public static class Builder {
         final private Human instance;
-        
-        public Builder(){
+
+        public Builder() {
             instance = new Human();
             instance.friends = new ArrayList<Human>();
         }
-        
-        public Builder setName(String name){
+
+        public Builder setName(String name) {
             instance.name = name;
             return this;
         }
-        
-        public Builder setAge(int age){
+
+        public Builder setAge(int age) {
             instance.age = age;
             return this;
         }
-        
-        public Builder addFriend(Human friend){
+
+        public Builder addFriend(Human friend) {
             instance.friends.add(friend);
-            
+
             return this;
         }
-        
-        public Builder addFriends(List<Human> friends){
+
+        public Builder addFriends(List<Human> friends) {
             instance.friends.addAll(friends);
             return this;
         }
@@ -70,16 +81,5 @@ public final class Human {
         public Human getInstance() {
             return instance;
         }
-    }
-
-    public static void main(String[] args) {
-        Human friend = new Human("Petia", 19, new ArrayList<Human>());
-
-        Human test = new Human.Builder().setName(getVasiaName()).
-                setAge(19).addFriend(friend).getInstance();
-    }
-
-    private static String getVasiaName() {
-        return "Vasia";
     }
 }

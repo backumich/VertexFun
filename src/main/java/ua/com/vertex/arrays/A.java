@@ -4,7 +4,7 @@ package ua.com.vertex.arrays;
  * Created by sweet_home on 11.09.16.
  */
 public class A {
-    private static int COUNT=0;
+    private static int COUNT = 0;
 
     protected int i = COUNT++;
 

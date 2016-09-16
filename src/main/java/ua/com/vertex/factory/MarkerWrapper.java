@@ -1,14 +1,12 @@
 package ua.com.vertex.factory;
 
-import ua.com.vertex.factory.impl.GreenMarker;
-
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
  * Created by sweet_home on 10.09.16.
  */
-public class MarkerWrapper{
+public class MarkerWrapper {
     Marker wrapped;
 
     public MarkerWrapper(Marker wrapped) {

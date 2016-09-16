@@ -1,9 +1,6 @@
 package ua.com.vertex.arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by sweet_home on 11.09.16.

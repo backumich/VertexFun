@@ -3,11 +3,11 @@ package ua.com.vertex.factory;
 /**
  * Created by sweet_home on 10.09.16.
  */
-public abstract class AbstractMarker implements Marker{
+public abstract class AbstractMarker implements Marker {
 
-    private final String color;
     protected final String openTag;
     protected final String closeTag;
+    private final String color;
 
 //    protected AbstractMarker(){}
 
@@ -17,7 +17,6 @@ public abstract class AbstractMarker implements Marker{
         this.closeTag = "</" + color + ">";
     }
 
-    @Override
     public void print(String string) {
         System.out.println(openTag + string + closeTag);
     }

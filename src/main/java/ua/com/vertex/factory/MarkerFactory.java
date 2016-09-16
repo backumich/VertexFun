@@ -34,4 +34,9 @@ public class MarkerFactory {
         red.print("red test");
         green.print("green string");
     }
+
+    @org.openjdk.jmh.annotations.Benchmark
+    public void measureName() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        MarkerFactory.getInstance("Red");
+    }
 }
