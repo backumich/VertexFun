@@ -1,5 +1,6 @@
 package ua.com.vertex.factory;
 
+import org.openjdk.jmh.annotations.Benchmark;
 import ua.com.vertex.factory.impl.GreenMarker;
 import ua.com.vertex.factory.impl.RedMarker;
 
@@ -35,7 +36,7 @@ public class MarkerFactory {
         green.print("green string");
     }
 
-    @org.openjdk.jmh.annotations.Benchmark
+    @Benchmark
     public void measureName() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         MarkerFactory.getInstance("Red");
     }
