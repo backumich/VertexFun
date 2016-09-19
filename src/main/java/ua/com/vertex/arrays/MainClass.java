@@ -1,6 +1,7 @@
 package ua.com.vertex.arrays;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 /**
  * Created by sweet_home on 11.09.16.
@@ -15,14 +16,36 @@ public class MainClass {
 //        ArrayList<A> list = new ArrayList<>();
 //        list.add(new B());
 
-        B b1 = new B(), b2 = new B();
+//        B b1 = new B(), b2 = new B();
+//
+//        B[] arrayOfA = {new B(), new B(), new B(), b1, b2};
+//        Stream<A> stream = Arrays.stream(arrayOfA);
+//
+//        arrayOfA[0] = null;
+//
+//        stream.forEach(System.out::println);
 
-        B[] arrayOfA = {new B(), new B(), new B(), b1, b2};
-        System.out.println(arrayOfA);
 
-        Arrays.sort(arrayOfA);
+//        Collection<A> arrayList = Arrays.asList(arrayOfA);
+//        stream = arrayList.stream();
+//        stream.limit(3).map(instanceOfA -> {
+//            A toReturn = instanceOfA;
+////            change(toReturn);
+//            return toReturn.hashCode();
+//        }).forEach(System.out::print);
 
-        System.out.println(Arrays.toString(arrayOfA));
+
+        int[] ints = new int[]{1, 2, 3, 4, 5};
+
+        IntStream stream1 = Arrays.stream(ints);
+
+        IntStream intStream = stream1.map(i -> ++i);
+        intStream.forEach(System.out::println);
+
+        stream1.forEach(System.out::println);
+
+        System.out.println(Arrays.toString(ints));
+
 
     }
 }
