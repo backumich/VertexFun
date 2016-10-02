@@ -4,7 +4,18 @@ package ua.com.vertex.collections;
  * Created by sweet_home on 17.09.16.
  */
 public class CollectionsShowcase {
+
+    private static int field = 0;
+
+    private CollectionsShowcase() {
+        System.out.println("default constructor");
+    }
+
+    private CollectionsShowcase(int i) {
+        System.out.println(i);
+    }
     public static void main(String[] args) {
+
 
         Tester tester = () -> {
             int i = 1;
