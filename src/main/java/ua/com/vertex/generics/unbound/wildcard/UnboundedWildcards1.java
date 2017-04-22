@@ -1,6 +1,9 @@
 package ua.com.vertex.generics.unbound.wildcard;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class UnboundedWildcards1 {
     static List list1;
@@ -20,7 +23,7 @@ public class UnboundedWildcards1 {
         list3 = list;
     }
 
-    static void assign3(List<? extends Set> list) {
+    static void assign3(List<? extends Object> list) {
         list1 = list;
         list2 = list;
         list3 = list;
@@ -29,8 +32,8 @@ public class UnboundedWildcards1 {
     public static void main(String[] args) {
         assign1(new ArrayList());
         assign2(new ArrayList());
-        List list = Collections.singletonList(new Object());
-//        list.add(new Object());
+        List<Object> list = new ArrayList<>();
+        list.add(new Object());
         assign3(list); // Warning:
         // Unchecked conversion. Found: ArrayList
         // Required: List<? extends Object>
@@ -42,6 +45,6 @@ public class UnboundedWildcards1 {
         wildList = new ArrayList<HashSet>();
         assign1(wildList);
         assign2(wildList);
-//        assign3(wildList);
+        assign3(wildList);
     }
 }

@@ -11,14 +11,14 @@ public class MainClass {
 
     public static void main(String[] args) {
 //
-//        A[] a = new B[3];
+//        A[] a = new Person[3];
 //
 //        ArrayList<A> list = new ArrayList<>();
-//        list.add(new B());
+//        list.add(new Person());
 
-//        B b1 = new B(), b2 = new B();
+//        Person b1 = new Person(), b2 = new Person();
 //
-//        B[] arrayOfA = {new B(), new B(), new B(), b1, b2};
+//        Person[] arrayOfA = {new Person(), new Person(), new Person(), b1, b2};
 //        Stream<A> stream = Arrays.stream(arrayOfA);
 //
 //        arrayOfA[0] = null;

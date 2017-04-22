@@ -1,5 +1,10 @@
 package ua.com.vertex.generics.wildcard;
 
+import ua.com.vertex.util.Apple;
+import ua.com.vertex.util.Fruit;
+import ua.com.vertex.util.Jonathan;
+import ua.com.vertex.util.Orange;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,8 +17,8 @@ public class GenericsAndCovariance {
         List<Apple> apples = new ArrayList<Apple>();
         flist = apples;
         // Compile Error: can’t add any type of object:
-//         apples.add(new Apple());
-//        apples.add(new Jonathan());
+        apples.add(new Apple());
+        apples.add(new Jonathan());
 //         flist.add(new Fruit());
 //         flist.add(new Object());
         flist.add(null); // Legal but uninteresting

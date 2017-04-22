@@ -1,20 +1,23 @@
 package ua.com.vertex.reflection;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 public class Showcase {
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
-        Class<?> clazz = Class.forName("ua.com.vertex.collections.CollectionsShowcase", true, Showcase.class.getClassLoader());
+        myMethod();
+
+
+//        Class<?> clazz = Class.forName("ua.com.vertex.collections.CollectionsShowcase", true, Showcase.class.getClassLoader());
 //        Class<?> innerClazz = Class.forName("ua.com.vertex.collections.MethodsShowcase.IntWrapper", true, Showcase.class.getClassLoader());
 
 
-        Field field = clazz.getDeclaredField("field");
-        field.setAccessible(true);
-        field.set(clazz, 2);
+//        Field field = clazz.getDeclaredField("field");
+//        field.setAccessible(true);
+//        field.set(clazz, 2);
 
-        System.out.println(field.get(clazz));
+//        System.out.println(field.get(clazz));
 
 
 //        Constructor<?>[] declaredConstructors = clazz.getDeclaredConstructors();
@@ -51,6 +54,42 @@ public class Showcase {
 //        Arrays.stream(clazz.getMethods()).forEach(System.out::println);
 
 //        System.out.println(clazz == aClass);
+    }
+
+    public static void myMethod() throws ClassNotFoundException {
+        System.out.println(Arrays.toString(void.class.getDeclaredMethods()));
+
+        //fixme: fix lombok
+
+//        MyClass myObject = new MyClass(1, "Vasiliy", "Putin");
+//        Class<? extends MyClass> aClass = myObject.getClass();
+
+//        System.out.println(myObject);
+
+//        Arrays.stream(aClass.getDeclaredFields())
+//                .filter(field -> field.getName().contains("id") ||
+//                        field.getName().contains("Id") ||
+//                field.getName().contains("ID"))
+//                .forEach(field -> {
+//                    try {
+//                        field.setAccessible(true);
+//                        field.set(myObject,
+//                                Integer.valueOf(field.get(myObject).toString()) + 1);
+//                        System.out.println("Field changed!");
+//                    } catch (Exception ignored){
+//                        System.out.println(ignored);
+//                    }
+//                });
+
+//        System.out.println(myObject);
+
+
+    }
+
+    private static <U> void arrayOut(U[] array) {
+
+        Arrays.stream(array)
+                .forEach(System.out::println);
     }
 
 }

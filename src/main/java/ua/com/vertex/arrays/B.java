@@ -7,7 +7,7 @@ public class B extends A implements Comparable {
 
     @Override
     public String toString() {
-        return "B " + i;
+        return "Person " + i;
     }
 
     public int compareTo(Object toCompare) {

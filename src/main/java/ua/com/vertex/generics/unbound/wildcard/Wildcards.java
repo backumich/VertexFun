@@ -1,6 +1,8 @@
 package ua.com.vertex.generics.unbound.wildcard;
 
 
+import java.util.Collection;
+
 public class Wildcards {
 
     // Raw argument:
@@ -10,7 +12,7 @@ public class Wildcards {
         //   member of the raw type Holder
 //         holder.set(new Wildcards()); // Same warning
 // Can’t do this; don’t have any ‘T’:
-//         T t = holder.get();
+//        Wildcards t = holder.get();
         // OK, but type information has been lost:
         Object obj = holder.get();
     }
@@ -18,7 +20,7 @@ public class Wildcards {
     // Similar to rawArgs(), but errors instead of warnings:
     static void unboundedArg(Holder<?> holder, Object arg) {
         System.out.println("new element in collection " + holder);
-//         holder.set(new Object()); // Error:
+//         holder.set(arg); // Error:
         //   set(capture of ?) in Holder<capture of ?>
         //   cannot be applied to (Object)
 //         holder.set(new Wildcards()); // Same error
@@ -41,7 +43,7 @@ public class Wildcards {
 
     static <T> T wildSubtype(Holder<? extends T> holder, T arg) {
         holder.set(null);
-        // holder.set(arg); // Error:
+//         holder.set(arg); // Error:
         //   set(capture of ? extends T) in
         //   Holder<capture of ? extends T>
         //   cannot be applied to (T)
@@ -51,7 +53,7 @@ public class Wildcards {
 
     static <T> void wildSupertype(Holder<? super T> holder, T arg) {
         holder.set(arg);
-        // T t = holder.get();  // Error:
+//         T t = holder.get();  // Error:
         //   Incompatible types: found Object, required T
         // OK, but type information has been lost:
         Object obj = holder.get();
@@ -81,6 +83,7 @@ public class Wildcards {
         Long r2 = exact1(qualified);
         Object r3 = exact1(unbounded); // Must return Object
         Long r4 = exact1(bounded);
+
         Long r5 = exact2(raw, lng); // Warnings:
         //   Unchecked conversion from Holder to Holder<Long>
         //   Unchecked method invocation: exact2(Holder<T>,T)
@@ -93,7 +96,7 @@ public class Wildcards {
         //   exact2(Holder<T>,T) cannot be applied
         //   to (Holder<capture of ? extends Long>,Long)
 
-//         Long r9 = wildSubtype(raw, lng); // Warnings:
+        Long r9 = wildSubtype(raw, lng); // Warnings:
         //   Unchecked conversion from Holder
         //   to Holder<? extends Long>
         //   Unchecked method invocation:
@@ -102,7 +105,8 @@ public class Wildcards {
         Long r10 = wildSubtype(qualified, lng);
         // OK, but can only return Object:
         Object r11 = wildSubtype(unbounded, lng);
-//        Long r12 = wildSubtype(bounded, lng);
+        Long r12 = wildSubtype(bounded, lng);
+
         wildSupertype(raw, lng); // Warnings:
         //   Unchecked conversion from Holder
         //   to Holder<? super Long>
@@ -117,6 +121,7 @@ public class Wildcards {
         //   wildSupertype(Holder<? super T>,T) cannot be
         //  applied to (Holder<capture of ? extends Long>,Long)
 
+
     }
 
     static class Holder<T> {
@@ -127,6 +132,10 @@ public class Wildcards {
 
         public Holder(T thing) {
             this.thing = thing;
+        }
+
+        public static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) {
+            return null;
         }
 
         public T get() {

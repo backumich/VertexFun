@@ -1,16 +1,10 @@
 package ua.com.vertex.generics.wildcard;
 
-class Fruit {
-}
 
-class Apple extends Fruit {
-}
-
-class Jonathan extends Apple {
-}
-
-class Orange extends Fruit {
-}
+import ua.com.vertex.util.Apple;
+import ua.com.vertex.util.Fruit;
+import ua.com.vertex.util.Jonathan;
+import ua.com.vertex.util.Orange;
 
 public class CovariantArrays {
     public static void main(String[] args) {
